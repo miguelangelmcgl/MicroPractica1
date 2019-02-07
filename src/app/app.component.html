@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <h1>
+     {{ title }}!
+    </h1>
+  </div>
+  <div class='class_comanda'>
+  <h2 class="titulo">Mesón Gallego</h2>
+  <form class='classform1' #f='ngForm'>
+  <br/>
+  <label>Consumicion:</label>
+  <select name='lstColor' [(ngModel)]='codProducto'>
+   <option *ngFor='let prod of productos; let i=index' value='{{i}}'>{{prod[0]}} (
+  {{prod[1]}} €)</option>
+  </select>
+  <button type='button' (click)='addLinea()'>+</button>
+  </form>
+  <br/>
+  <h3>Consumiciones:</h3>
+  <table width="450px">
+  <thead><td><u>Producto</u></td><td align="right"><u>Precio</u></td></thead>
+  <tr *ngFor='let linea of lineas; let i=index'>
+   <td>{{linea[0]}}</td>
+   <td align="right">{{linea[1]}}€</td>
+   <td align="center"><button type='button' (click)='delLinea(i)'>-</button></td>
+  </tr>
+  <tr><td><b>TOTAL</b></td><td align="right"><b>{{importe}}€</b></td></tr>
+  </table>
+  </div>
